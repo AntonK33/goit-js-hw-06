@@ -2,14 +2,16 @@ const loginForm = document.querySelector('#login-form');
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
+    const data = new FormData(event.target)
+    
     const login = data.get('email');
     const password = data.get('password');
     let obj = {};
     
-    if (login !== '' || password !== '') {      
+    if (login !== '' && password !== '') {  
+            
         data.forEach((key, value) => {
-            obj[key] = value;
+            obj[value] = key;
             console.log(obj);
         })
         
@@ -19,4 +21,5 @@ loginForm.addEventListener('submit', (event) => {
     else {
         alert('Необходимо заполнить все поля!');
     }
-    }); 
+}); 
+    
